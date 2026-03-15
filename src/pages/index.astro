@@ -20,6 +20,119 @@ const storyHighlights = [
   "Dreamtime adventures that make children feel brave",
 ];
 
+const heroFootprints = [
+  {
+    x: "15%",
+    y: "4.9%",
+    size: "1.66rem",
+    rotation: "76deg",
+    color: "rgba(46, 38, 29, 0.4)",
+    delay: "0ms",
+    driftX: "0.16rem",
+    driftY: "0rem",
+  },
+  {
+    x: "21.5%",
+    y: "2.5%",
+    size: "1.56rem",
+    rotation: "98deg",
+    color: "rgba(46, 38, 29, 0.34)",
+    delay: "180ms",
+    driftX: "0.18rem",
+    driftY: "0.01rem",
+  },
+  {
+    x: "29%",
+    y: "5.1%",
+    size: "1.62rem",
+    rotation: "80deg",
+    color: "rgba(46, 38, 29, 0.37)",
+    delay: "360ms",
+    driftX: "0.18rem",
+    driftY: "0.02rem",
+  },
+  {
+    x: "37.5%",
+    y: "2.7%",
+    size: "1.56rem",
+    rotation: "102deg",
+    color: "rgba(46, 38, 29, 0.31)",
+    delay: "540ms",
+    driftX: "0.19rem",
+    driftY: "0.02rem",
+  },
+  {
+    x: "47%",
+    y: "5.2%",
+    size: "1.64rem",
+    rotation: "80deg",
+    color: "rgba(46, 38, 29, 0.36)",
+    delay: "720ms",
+    driftX: "0.2rem",
+    driftY: "0.03rem",
+  },
+  {
+    x: "57.5%",
+    y: "2.9%",
+    size: "1.56rem",
+    rotation: "104deg",
+    color: "rgba(46, 38, 29, 0.33)",
+    delay: "900ms",
+    driftX: "0.2rem",
+    driftY: "0.05rem",
+  },
+  {
+    x: "69%",
+    y: "5.2%",
+    size: "1.66rem",
+    rotation: "86deg",
+    color: "rgba(46, 38, 29, 0.39)",
+    delay: "1080ms",
+    driftX: "0.18rem",
+    driftY: "0.08rem",
+  },
+  {
+    x: "81.5%",
+    y: "8.5%",
+    size: "1.68rem",
+    rotation: "124deg",
+    color: "rgba(46, 38, 29, 0.38)",
+    delay: "1260ms",
+    driftX: "0.1rem",
+    driftY: "0.14rem",
+  },
+  {
+    x: "92.5%",
+    y: "18.8%",
+    size: "1.7rem",
+    rotation: "158deg",
+    color: "rgba(46, 38, 29, 0.33)",
+    delay: "1440ms",
+    driftX: "0.02rem",
+    driftY: "0.18rem",
+  },
+  {
+    x: "93.6%",
+    y: "31.5%",
+    size: "1.6rem",
+    rotation: "182deg",
+    color: "rgba(46, 38, 29, 0.37)",
+    delay: "1620ms",
+    driftX: "0rem",
+    driftY: "0.2rem",
+  },
+  {
+    x: "95.1%",
+    y: "43.2%",
+    size: "1.66rem",
+    rotation: "190deg",
+    color: "rgba(46, 38, 29, 0.34)",
+    delay: "1800ms",
+    driftX: "0.01rem",
+    driftY: "0.22rem",
+  },
+];
+
 const introductionParagraphs = [
   "In a quaint little town, there is a popular face-painting stall run by a kind old lady named Grandma Lily. She is famous for her beautiful and whimsical face paintings, but none are more beloved than the mysterious mouse character she paints, known as Anony-Mouse.",
   "Grandma Lily discovered an old enchanted paintbrush in her attic and used it to create the Anony-Mouse face painting. During the day, children flock to her stall to ask for Anony-Mouse, with his big round ears, twinkling eyes, and tiny whiskers. Every child who wears his image feels a special burst of joy and excitement.",
@@ -80,6 +193,17 @@ const introductionParagraphs = [
             <strong class="cover-stack__title">Audio + Text</strong>
           </div>
         </div>
+      </div>
+
+      <div class="hero__paw-trail" aria-hidden="true">
+        {
+          heroFootprints.map((footprint) => (
+            <span
+              class="paw-print"
+              style={`--paw-x: ${footprint.x}; --paw-y: ${footprint.y}; --paw-size: ${footprint.size}; --paw-rotation: ${footprint.rotation}; --paw-color: ${footprint.color}; --paw-delay: ${footprint.delay}; --paw-drift-x: ${footprint.driftX}; --paw-drift-y: ${footprint.driftY};`}
+            />
+          ))
+        }
       </div>
     </section>
 
