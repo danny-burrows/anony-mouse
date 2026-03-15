@@ -3,6 +3,11 @@ import TrilogyCard from "../components/TrilogyCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { trilogies } from "../data/trilogies.js";
 
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const heroCoverStyle = `--cover-image: url("${baseUrl}images/meet-the-hero.png");`;
+
 const availableFormats = [
   "Kindle trilogy bundles",
   "Audible-friendly audio sets",
@@ -17,11 +22,10 @@ const availableFormats = [
   <main class="page-shell">
     <section class="hero">
       <div class="hero__content">
-        <p class="eyebrow">Anony-Mouse</p>
+        <p class="eyebrow hero__eyebrow">Anony-Mouse</p>
         <h1>
-          Tiny paws.
-          <br />
-          Big adventures.
+          <span class="hero__headline hero__headline--small">Tiny paws.</span>
+          <span class="hero__headline hero__headline--large">Big adventures.</span>
         </h1>
         <p class="hero__lede">
           Meet Anony-Mouse, the little hero at the center of playful trilogies
@@ -42,17 +46,17 @@ const availableFormats = [
 
       <div class="hero__visual" aria-hidden="true">
         <div class="cover-stack">
-          <div class="cover-stack__card cover-stack__card--front">
-            <span>Moonbeam</span>
-            <strong>Anony-Mouse</strong>
+          <div class="cover-stack__card cover-stack__card--front" style={heroCoverStyle}>
+            <span>Meet the hero</span>
+            <strong class="cover-stack__title cover-stack__title--brand">Anony-Mouse</strong>
           </div>
           <div class="cover-stack__card cover-stack__card--middle">
             <span>Bramble Brook</span>
-            <strong>Trilogy</strong>
+            <strong class="cover-stack__title">Trilogy</strong>
           </div>
           <div class="cover-stack__card cover-stack__card--back">
             <span>Starlight Harbor</span>
-            <strong>Audio + Text</strong>
+            <strong class="cover-stack__title">Audio + Text</strong>
           </div>
         </div>
       </div>

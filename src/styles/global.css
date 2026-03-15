@@ -101,6 +101,16 @@ a {
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.45);
 }
 
+.hero__eyebrow {
+  font-size: 0.96rem;
+  letter-spacing: 0.16em;
+}
+
+.hero__eyebrow::before {
+  width: 1rem;
+  height: 1rem;
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
@@ -126,6 +136,18 @@ a {
   max-width: 12ch;
   margin-top: 1rem;
   font-size: clamp(3.6rem, 7vw, 6.4rem);
+}
+
+.hero__headline {
+  display: block;
+}
+
+.hero__headline--small {
+  font-size: 0.72em;
+}
+
+.hero__headline--large {
+  margin-top: 0.08em;
 }
 
 .hero__lede {
@@ -261,12 +283,18 @@ a {
   opacity: 0.86;
 }
 
-.cover-stack__card strong {
+.cover-stack__title {
   position: relative;
   max-width: 8ch;
   font-family: "Georgia", "Palatino Linotype", serif;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   line-height: 0.95;
+}
+
+.cover-stack__title--brand {
+  max-width: 9ch;
+  font-size: clamp(2.3rem, 4vw, 3.3rem);
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.38);
 }
 
 .cover-stack__card--front {
@@ -275,9 +303,19 @@ a {
   z-index: 3;
   transform: rotate(-6deg);
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.5), transparent 40%),
-    linear-gradient(155deg, #f2c660, #d18d20 75%);
+    linear-gradient(180deg, rgba(16, 28, 43, 0.08) 0%, rgba(17, 31, 48, 0.18) 38%, rgba(10, 17, 29, 0.8) 100%),
+    var(--cover-image) center 24% / cover no-repeat,
+    linear-gradient(155deg, #5d88b0, #2d5171 78%);
   color: #fff9ef;
+}
+
+.cover-stack__card--front span {
+  width: fit-content;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(10, 17, 29, 0.4);
+  backdrop-filter: blur(6px);
+  opacity: 1;
 }
 
 .cover-stack__card--middle {
