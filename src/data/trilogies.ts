@@ -1,4 +1,21 @@
-export const trilogies = [
+export type TrilogyAccent = "gold" | "berry" | "sea";
+
+export interface Trilogy {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  tagline: string;
+  description: string;
+  stories: string[];
+  ageRange: string;
+  textDetails: string;
+  audioDetails: string;
+  accent: TrilogyAccent;
+  kindleUrl: string;
+  audibleUrl: string;
+}
+
+export const trilogies: Trilogy[] = [
   {
     slug: "moonbeam-mysteries",
     title: "Moonbeam Mysteries",
@@ -9,14 +26,14 @@ export const trilogies = [
     stories: [
       "The Lantern Under the Stairs",
       "The Secret of Button Bay",
-      "Midnight at Crumbly Castle"
+      "Midnight at Crumbly Castle",
     ],
     ageRange: "Ages 5-9",
     textDetails: "3 illustrated stories, about 240 pages",
     audioDetails: "3 narrated adventures, about 2 hr 35 min",
     accent: "gold",
     kindleUrl: "",
-    audibleUrl: ""
+    audibleUrl: "",
   },
   {
     slug: "bramble-brook-buddies",
@@ -28,14 +45,14 @@ export const trilogies = [
     stories: [
       "The Kite in the Apple Tree",
       "The Picnic Blanket Rescue",
-      "A Race to Firefly Field"
+      "A Race to Firefly Field",
     ],
     ageRange: "Ages 4-8",
     textDetails: "3 read-aloud stories, about 210 pages",
     audioDetails: "3 voice-led tales, about 2 hr 10 min",
     accent: "berry",
     kindleUrl: "",
-    audibleUrl: ""
+    audibleUrl: "",
   },
   {
     slug: "starlight-harbor",
@@ -47,13 +64,13 @@ export const trilogies = [
     stories: [
       "The Paper Boat Parade",
       "The Whispering Lighthouse",
-      "The Bell at Sleepy Pier"
+      "The Bell at Sleepy Pier",
     ],
     ageRange: "Ages 5-10",
     textDetails: "3 chapter stories, about 255 pages",
     audioDetails: "3 bedtime listens, about 2 hr 50 min",
     accent: "sea",
     kindleUrl: "",
-    audibleUrl: ""
-  }
+    audibleUrl: "",
+  },
 ];

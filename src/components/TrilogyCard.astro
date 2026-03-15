@@ -1,5 +1,12 @@
 ---
-const { trilogy, index = 0 } = Astro.props;
+import type { Trilogy } from "../data/trilogies";
+
+interface Props {
+  trilogy: Trilogy;
+  index?: number;
+}
+
+const { trilogy, index = 0 } = Astro.props as Props;
 const style = `--card-delay: ${index * 120}ms;`;
 const hasKindleLink = Boolean(trilogy.kindleUrl);
 const hasAudibleLink = Boolean(trilogy.audibleUrl);
@@ -15,9 +22,7 @@ const hasAudibleLink = Boolean(trilogy.audibleUrl);
   <p class="trilogy-card__description">{trilogy.description}</p>
 
   <ul class="trilogy-card__stories" aria-label={`${trilogy.title} stories`}>
-    {trilogy.stories.map((story) => (
-      <li>{story}</li>
-    ))}
+    {trilogy.stories.map((story) => <li>{story}</li>)}
   </ul>
 
   <dl class="trilogy-card__details">

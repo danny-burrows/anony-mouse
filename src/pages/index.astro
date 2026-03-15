@@ -1,7 +1,7 @@
 ---
 import TrilogyCard from "../components/TrilogyCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { trilogies } from "../data/trilogies.js";
+import { trilogies } from "../data/trilogies";
 
 const baseUrl = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
@@ -11,13 +11,13 @@ const heroCoverStyle = `--cover-image: url("${baseUrl}images/meet-the-hero.png")
 const availableFormats = [
   "Kindle trilogy bundles",
   "Audible-friendly audio sets",
-  "Whimsical stories for read-aloud time"
+  "Whimsical stories for read-aloud time",
 ];
 
 const storyHighlights = [
   "Grandma Lily's enchanted paintbrush",
   "A secret hero who wakes at moonrise",
-  "Dreamtime adventures that make children feel brave"
+  "Dreamtime adventures that make children feel brave",
 ];
 
 const introductionParagraphs = [
@@ -25,7 +25,7 @@ const introductionParagraphs = [
   "Grandma Lily discovered an old enchanted paintbrush in her attic and used it to create the Anony-Mouse face painting. During the day, children flock to her stall to ask for Anony-Mouse, with his big round ears, twinkling eyes, and tiny whiskers. Every child who wears his image feels a special burst of joy and excitement.",
   "What the children do not know is that Anony-Mouse comes to life at night. When the moon rises high in the sky, he steps out of the face paints and into the real world. He loves to explore, spread happiness, and visit the dreams of the children who wore his face painting during the day.",
   "One day, Grandma Lily notices that the children seem happier and more confident. As she hears about their magical dreams, she smiles knowingly and reveals that Anony-Mouse was a character she created long ago to help children feel brave and happy. She never expected him to come to life, but she is delighted by the joy he brings.",
-  "And so the story ends with Anony-Mouse continuing his nightly adventures, promising that as long as children need a friend in their dreams, he will be there."
+  "And so the story ends with Anony-Mouse continuing his nightly adventures, promising that as long as children need a friend in their dreams, he will be there.",
 ];
 ---
 
@@ -39,7 +39,9 @@ const introductionParagraphs = [
         <p class="eyebrow hero__eyebrow">Anony-Mouse</p>
         <h1>
           <span class="hero__headline hero__headline--small">Tiny paws.</span>
-          <span class="hero__headline hero__headline--large">Big adventures.</span>
+          <span class="hero__headline hero__headline--large"
+            >Big adventures.</span
+          >
         </h1>
         <p class="hero__lede">
           Meet Anony-Mouse, the little hero at the center of playful trilogies
@@ -47,22 +49,27 @@ const introductionParagraphs = [
         </p>
 
         <div class="hero__actions">
-          <a class="button button--primary" href="#collections">Browse trilogies</a>
+          <a class="button button--primary" href="#collections"
+            >Browse trilogies</a
+          >
           <a class="button button--secondary" href="#story">Read the story</a>
         </div>
 
         <ul class="format-chips" aria-label="Available formats">
-          {availableFormats.map((format) => (
-            <li>{format}</li>
-          ))}
+          {availableFormats.map((format) => <li>{format}</li>)}
         </ul>
       </div>
 
       <div class="hero__visual" aria-hidden="true">
         <div class="cover-stack">
-          <div class="cover-stack__card cover-stack__card--front" style={heroCoverStyle}>
+          <div
+            class="cover-stack__card cover-stack__card--front"
+            style={heroCoverStyle}
+          >
             <span>Meet the hero</span>
-            <strong class="cover-stack__title cover-stack__title--brand">Anony-Mouse</strong>
+            <strong class="cover-stack__title cover-stack__title--brand"
+              >Anony-Mouse</strong
+            >
           </div>
           <div class="cover-stack__card cover-stack__card--middle">
             <span>Bramble Brook</span>
@@ -81,15 +88,15 @@ const introductionParagraphs = [
         <p class="eyebrow">How It Began</p>
         <h2>The magic behind Anony-Mouse.</h2>
         <p class="origin-story__lead">
-          A gentle origin story about Grandma Lily, an enchanted paintbrush,
-          and the little mouse who brings bravery and joy into children's
-          dreams.
+          A gentle origin story about Grandma Lily, an enchanted paintbrush, and
+          the little mouse who brings bravery and joy into children's dreams.
         </p>
 
-        <ul class="origin-story__highlights" aria-label="Origin story highlights">
-          {storyHighlights.map((highlight) => (
-            <li>{highlight}</li>
-          ))}
+        <ul
+          class="origin-story__highlights"
+          aria-label="Origin story highlights"
+        >
+          {storyHighlights.map((highlight) => <li>{highlight}</li>)}
         </ul>
       </div>
 
@@ -98,9 +105,7 @@ const introductionParagraphs = [
       </div>
 
       <div class="origin-story__body">
-        {introductionParagraphs.map((paragraph) => (
-          <p>{paragraph}</p>
-        ))}
+        {introductionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </section>
 
@@ -109,15 +114,17 @@ const introductionParagraphs = [
         <p class="eyebrow">Featured collections</p>
         <h2>Pick an Anony-Mouse trilogy.</h2>
         <p>
-          Each collection below is ready for a Kindle link, an Audible link,
-          or both.
+          Each collection below is ready for a Kindle link, an Audible link, or
+          both.
         </p>
       </div>
 
       <div class="collections__grid">
-        {trilogies.map((trilogy, index) => (
-          <TrilogyCard trilogy={trilogy} index={index} />
-        ))}
+        {
+          trilogies.map((trilogy, index) => (
+            <TrilogyCard trilogy={trilogy} index={index} />
+          ))
+        }
       </div>
     </section>
 
