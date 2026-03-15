@@ -125,7 +125,6 @@ a {
 
 .hero h1,
 .section-heading h2,
-.highlights h2,
 .closing-callout h2 {
   font-family: "Georgia", "Palatino Linotype", "Book Antiqua", serif;
   line-height: 0.96;
@@ -340,34 +339,230 @@ a {
   color: #f9fffc;
 }
 
-.highlights {
+.origin-story {
+  position: relative;
   display: grid;
-  grid-template-columns: 1.1fr repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: minmax(0, 0.92fr) 1.35rem minmax(0, 1.08fr);
+  gap: 0;
+  align-items: stretch;
+  margin-top: 0.8rem;
+  padding: 1.15rem 1.1rem 1.25rem;
+  border-radius: 38px;
+  background:
+    radial-gradient(circle at top left, rgba(241, 187, 73, 0.18), transparent 22%),
+    radial-gradient(circle at top right, rgba(77, 154, 165, 0.14), transparent 24%),
+    linear-gradient(180deg, #d9bd8f 0%, #ba925c 52%, #a07545 100%);
+  box-shadow:
+    0 30px 60px rgba(74, 53, 32, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.origin-story::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 0.7rem;
+  height: 1.2rem;
+  border-radius: 999px;
+  background: rgba(72, 48, 28, 0.2);
+  filter: blur(14px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.origin-story__spine {
+  position: relative;
+  z-index: 2;
+  align-self: stretch;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(99, 68, 38, 0.82) 0%,
+      rgba(199, 160, 102, 0.6) 48%,
+      rgba(99, 68, 38, 0.84) 100%
+    );
+  box-shadow:
+    inset 0 0 14px rgba(255, 245, 222, 0.18),
+    0 10px 24px rgba(77, 55, 33, 0.16);
+}
+
+.origin-story__spine::before {
+  content: "";
+  position: absolute;
+  inset: 0.5rem 0.2rem;
+  border-radius: 999px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 246, 224, 0.24) 0 0.32rem,
+      rgba(255, 246, 224, 0) 0.32rem 0.7rem
+    );
+  opacity: 0.9;
+}
+
+.origin-story__ribbon {
+  position: absolute;
+  top: -0.35rem;
+  left: 50%;
+  width: 1.05rem;
+  height: 4.2rem;
+  transform: translateX(-50%);
+  border-radius: 0 0 0.45rem 0.45rem;
+  background: linear-gradient(180deg, #d86d7a 0%, #a1334f 100%);
+  box-shadow:
+    0 10px 18px rgba(103, 34, 53, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+
+.origin-story__ribbon::before {
+  content: "";
+  position: absolute;
+  top: 0.3rem;
+  left: 50%;
+  width: 0.2rem;
+  height: 2.8rem;
+  transform: translateX(-50%);
+  background: rgba(255, 236, 214, 0.42);
+  border-radius: 999px;
+}
+
+.origin-story__intro,
+.origin-story__body {
+  position: relative;
+  z-index: 2;
+  border-radius: 30px;
+  border: 1px solid rgba(114, 82, 48, 0.14);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.34),
+    inset 0 0 28px rgba(195, 163, 117, 0.08);
+}
+
+.origin-story__intro {
+  padding: 1.85rem 1.8rem 1.8rem;
+  border-radius: 28px 14px 14px 28px;
+  background:
+    linear-gradient(90deg, rgba(166, 126, 76, 0.08), transparent 1.35rem),
+    radial-gradient(circle at top left, rgba(241, 187, 73, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 252, 246, 0.98), rgba(245, 236, 221, 0.98));
+}
+
+.origin-story__intro::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border-radius: 24px 10px 10px 24px;
+  border: 1px dashed rgba(130, 95, 56, 0.14);
+  pointer-events: none;
+}
+
+.origin-story__intro h2 {
+  margin-top: 0.8rem;
+  font-family: "Georgia", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: clamp(2.3rem, 3.6vw, 3.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.origin-story__lead {
+  margin-top: 1rem;
+  font-size: 1.04rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.origin-story__highlights {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.origin-story__highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px dashed rgba(46, 38, 29, 0.14);
+  line-height: 1.45;
+}
+
+.origin-story__highlights li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.3rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold), var(--berry));
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.45);
+}
+
+.origin-story__body {
+  overflow: hidden;
+  padding: 1.9rem 1.9rem 1.8rem;
+  border-radius: 14px 28px 28px 14px;
+  background:
+    linear-gradient(90deg, rgba(166, 126, 76, 0.08), transparent 1.45rem),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(245, 236, 221, 0.98));
+}
+
+.origin-story__body::before {
+  content: "";
+  position: absolute;
+  inset: 1.05rem 1rem;
+  border-radius: 10px 24px 24px 10px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 18%);
+  box-shadow: inset 1px 0 0 rgba(160, 120, 76, 0.18);
+  pointer-events: none;
+}
+
+.origin-story__body p {
+  position: relative;
+  z-index: 1;
+  --story-rule-step: 1.86em;
+  --story-rule-offset: 1.56em;
+  font-size: 1.02rem;
+  line-height: 1.86;
+  color: var(--ink-soft);
+  background-image: linear-gradient(
+    to bottom,
+    transparent calc(var(--story-rule-offset) - 1px),
+    rgba(141, 106, 67, 0.1) calc(var(--story-rule-offset) - 1px),
+    rgba(141, 106, 67, 0.1) calc(var(--story-rule-offset) + 1px),
+    transparent calc(var(--story-rule-offset) + 1px)
+  );
+  background-size: 100% var(--story-rule-step);
+  background-repeat: repeat-y;
+}
+
+.origin-story__body p:first-child {
+  color: var(--ink);
+}
+
+.origin-story__body p:first-child::first-letter {
+  float: left;
+  margin: 0.1rem 0.42rem 0 0;
+  font-family: "Georgia", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 3.4rem;
+  line-height: 0.82;
+  color: var(--forest);
+}
+
+.origin-story__body p + p {
   margin-top: 1rem;
 }
 
-.highlights article,
 .closing-callout {
   padding: 1.45rem 1.3rem;
   border-radius: var(--radius-lg);
   background: rgba(255, 251, 244, 0.72);
   border: 1px solid rgba(46, 38, 29, 0.08);
   box-shadow: 0 14px 32px rgba(58, 44, 28, 0.08);
-}
-
-.highlights h2 {
-  font-size: clamp(2rem, 3vw, 2.8rem);
-}
-
-.highlights h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.55rem;
-}
-
-.highlights p {
-  line-height: 1.7;
-  color: var(--ink-soft);
 }
 
 .collections {
@@ -566,8 +761,10 @@ a {
 @media (prefers-reduced-motion: no-preference) {
   .hero__content,
   .hero__visual,
+  .origin-story__intro,
+  .origin-story__spine,
+  .origin-story__body,
   .trilogy-card,
-  .highlights article,
   .closing-callout {
     animation: rise-in 720ms cubic-bezier(0.18, 0.8, 0.2, 1) both;
   }
@@ -576,20 +773,16 @@ a {
     animation-delay: 120ms;
   }
 
-  .highlights article:nth-child(1) {
-    animation-delay: 80ms;
+  .origin-story__intro {
+    animation-delay: 140ms;
   }
 
-  .highlights article:nth-child(2) {
-    animation-delay: 160ms;
+  .origin-story__spine {
+    animation-delay: 180ms;
   }
 
-  .highlights article:nth-child(3) {
-    animation-delay: 240ms;
-  }
-
-  .highlights article:nth-child(4) {
-    animation-delay: 320ms;
+  .origin-story__body {
+    animation-delay: 220ms;
   }
 
   .trilogy-card {
@@ -656,7 +849,7 @@ a {
 
 @media (max-width: 960px) {
   .hero,
-  .highlights,
+  .origin-story,
   .closing-callout,
   .collections__grid {
     grid-template-columns: 1fr;
@@ -668,6 +861,26 @@ a {
 
   .hero__visual {
     min-height: 28rem;
+  }
+
+  .origin-story {
+    gap: 0.9rem;
+    padding: 0.95rem;
+  }
+
+  .origin-story__spine {
+    display: none;
+  }
+
+  .origin-story__intro,
+  .origin-story__body {
+    margin: 0;
+    border-radius: 24px;
+  }
+
+  .origin-story__intro::before,
+  .origin-story__body::before {
+    border-radius: 18px;
   }
 }
 
@@ -682,9 +895,9 @@ a {
   }
 
   .hero__lede,
+  .origin-story__lead,
   .section-heading p:last-child,
   .closing-callout p:last-child,
-  .highlights p,
   .trilogy-card__description {
     font-size: 1rem;
   }
@@ -700,5 +913,29 @@ a {
 
   .hero__visual {
     min-height: 24rem;
+  }
+
+  .origin-story {
+    padding: 0.8rem;
+  }
+
+  .origin-story__intro,
+  .origin-story__body {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .origin-story__intro h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .origin-story__body p {
+    --story-rule-step: 1.78em;
+    --story-rule-offset: 1.5em;
+    font-size: 0.98rem;
+    line-height: 1.78;
+  }
+
+  .origin-story__body p:first-child::first-letter {
+    font-size: 2.8rem;
   }
 }
