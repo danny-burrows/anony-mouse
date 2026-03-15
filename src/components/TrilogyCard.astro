@@ -1,0 +1,58 @@
+---
+const { trilogy, index = 0 } = Astro.props;
+const style = `--card-delay: ${index * 120}ms;`;
+const hasKindleLink = Boolean(trilogy.kindleUrl);
+const hasAudibleLink = Boolean(trilogy.audibleUrl);
+---
+
+<article class={`trilogy-card trilogy-card--${trilogy.accent}`} style={style}>
+  <div class="trilogy-card__header">
+    <p class="trilogy-card__eyebrow">{trilogy.eyebrow}</p>
+    <h3>{trilogy.title}</h3>
+    <p class="trilogy-card__tagline">{trilogy.tagline}</p>
+  </div>
+
+  <p class="trilogy-card__description">{trilogy.description}</p>
+
+  <ul class="trilogy-card__stories" aria-label={`${trilogy.title} stories`}>
+    {trilogy.stories.map((story) => (
+      <li>{story}</li>
+    ))}
+  </ul>
+
+  <dl class="trilogy-card__details">
+    <div>
+      <dt>Perfect for</dt>
+      <dd>{trilogy.ageRange}</dd>
+    </div>
+    <div>
+      <dt>Kindle set</dt>
+      <dd>{trilogy.textDetails}</dd>
+    </div>
+    <div>
+      <dt>Audible set</dt>
+      <dd>{trilogy.audioDetails}</dd>
+    </div>
+  </dl>
+
+  <div class="trilogy-card__actions">
+    {
+      hasKindleLink ? (
+        <a class="buy-link buy-link--kindle" href={trilogy.kindleUrl}>
+          Buy on Kindle
+        </a>
+      ) : (
+        <span class="buy-link buy-link--muted">Add Kindle link</span>
+      )
+    }
+    {
+      hasAudibleLink ? (
+        <a class="buy-link buy-link--audible" href={trilogy.audibleUrl}>
+          Buy on Audible
+        </a>
+      ) : (
+        <span class="buy-link buy-link--muted">Add Audible link</span>
+      )
+    }
+  </div>
+</article>

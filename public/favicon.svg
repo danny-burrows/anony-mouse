@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Anony-Mouse icon">
+  <defs>
+    <linearGradient id="mouse" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f1bb49" />
+      <stop offset="100%" stop-color="#cc5a6a" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#fff8ef" />
+  <circle cx="22" cy="22" r="8" fill="url(#mouse)" />
+  <circle cx="42" cy="22" r="8" fill="url(#mouse)" />
+  <path
+    d="M18 38c0-9.941 6.716-18 15-18s15 8.059 15 18-6.716 14-15 14-15-4.059-15-14Z"
+    fill="#2f6c51"
+  />
+  <circle cx="28" cy="38" r="2.3" fill="#fff8ef" />
+  <circle cx="36" cy="38" r="2.3" fill="#fff8ef" />
+  <circle cx="32" cy="44" r="2.3" fill="#f1bb49" />
+  <path d="M48 44c7 0 10 4 10 8" fill="none" stroke="#cc5a6a" stroke-linecap="round" stroke-width="3.5" />
+</svg>

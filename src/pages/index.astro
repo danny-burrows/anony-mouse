@@ -1,0 +1,123 @@
+---
+import TrilogyCard from "../components/TrilogyCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { trilogies } from "../data/trilogies.js";
+
+const availableFormats = [
+  "Kindle trilogy bundles",
+  "Audible-friendly audio sets",
+  "Whimsical stories for read-aloud time"
+];
+---
+
+<BaseLayout
+  title="Anony-Mouse | Whimsical trilogies for young readers"
+  description="Discover Anony-Mouse trilogy collections with room for Kindle and Audible purchase links."
+>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Children's storyworld</p>
+        <h1>
+          Tiny paws.
+          <br />
+          Big adventures.
+        </h1>
+        <p class="hero__lede">
+          Meet Anony-Mouse, the little hero at the center of playful trilogies
+          made for cozy reading, family listening, and bedtime wonder.
+        </p>
+
+        <div class="hero__actions">
+          <a class="button button--primary" href="#collections">Browse trilogies</a>
+          <a class="button button--secondary" href="#formats">See the formats</a>
+        </div>
+
+        <ul class="format-chips" aria-label="Available formats">
+          {availableFormats.map((format) => (
+            <li>{format}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="cover-stack">
+          <div class="cover-stack__card cover-stack__card--front">
+            <span>Moonbeam</span>
+            <strong>Anony-Mouse</strong>
+          </div>
+          <div class="cover-stack__card cover-stack__card--middle">
+            <span>Bramble Brook</span>
+            <strong>Trilogy</strong>
+          </div>
+          <div class="cover-stack__card cover-stack__card--back">
+            <span>Starlight Harbor</span>
+            <strong>Audio + Text</strong>
+          </div>
+        </div>
+
+        <div class="hero-note">
+          <p>Built for trilogy bundles</p>
+          <strong>Kindle and Audible buttons can be dropped into each card.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlights" id="formats">
+      <article>
+        <p class="eyebrow">Designed for families</p>
+        <h2>Choose the format that fits story time.</h2>
+      </article>
+      <article>
+        <h3>Text collections</h3>
+        <p>
+          Each trilogy card has space for a Kindle box-set link, ideal for
+          parents who want the whole run in one place.
+        </p>
+      </article>
+      <article>
+        <h3>Audio collections</h3>
+        <p>
+          Audible buttons sit alongside the eBook links so listeners can jump
+          straight into narrated adventures.
+        </p>
+      </article>
+      <article>
+        <h3>Easy to update</h3>
+        <p>
+          The trilogy details and store links live in one content file, making
+          future updates straightforward.
+        </p>
+      </article>
+    </section>
+
+    <section class="collections" id="collections">
+      <div class="section-heading">
+        <p class="eyebrow">Featured collections</p>
+        <h2>Pick an Anony-Mouse trilogy.</h2>
+        <p>
+          Each collection below is ready for a Kindle link, an Audible link,
+          or both.
+        </p>
+      </div>
+
+      <div class="collections__grid">
+        {trilogies.map((trilogy, index) => (
+          <TrilogyCard trilogy={trilogy} index={index} />
+        ))}
+      </div>
+    </section>
+
+    <section class="closing-callout">
+      <div>
+        <p class="eyebrow">Ready for launch</p>
+        <h2>Publish now, wire in store pages when they are live.</h2>
+      </div>
+      <p>
+        The landing page is already structured around trilogy-level purchase
+        cards, so the remaining work is just dropping the final Kindle and
+        Audible URLs into the content file.
+      </p>
+    </section>
+  </main>
+</BaseLayout>
